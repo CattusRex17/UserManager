@@ -1,0 +1,28 @@
+/* 
+  Localizable.strings
+  UserManager
+
+  Created by Mauricio Rodriguez on 3/4/2025.
+  
+*/
+
+"Información" = "Information";
+"Nombre" = "Name";
+"Usuario: " = "Username: ";
+"Correo" = "Email";
+"Teléfono" = "Phone";
+"Ciudad: "  = "City: ";
+"Desconocida" = "Unknown";
+"Latitud: " = "Latitude: ";
+"Longitud: " = "Longitude: ";
+"Guardar cambios" = "Save changes";
+"Eliminar usuario" = "Delete user";
+"Detalles" = "Details";
+
+
+"Nuevo Usuario" = "New User";
+"Obtener Ubicación Actual" = "Get Current Location";
+"Guardar" = "Save";
+"Crear Usuario" = "Create User";
+"Error al cargar usuarios: " = "Error loading users:";
+"Ubicación actual" = "current_location";
