@@ -1,9 +1,9 @@
-UserManagerUserManager es una aplicación iOS desarrollada en Swift y SwiftUI que permite la gestión de usuarios. Su objetivo principal es consumir datos desde una API, almacenarlos localmente con Realm y permitir crear, editar y eliminar usuarios de manera local.
+UserManagerUserManager es una aplicación iOS desarrollada en Swift y SwiftUI que permite la gestión de usuarios. Su objetivo principal es consumir datos desde una API, almacenarlos localmente con UserDefaults y permitir crear, editar y eliminar usuarios de manera local.
 
 
 # Características Sincronización inicial desde API pública.
 
-- Persistencia local con Realm.
+- Persistencia local con UserDefaults.
 - Creación de nuevos usuarios desde el dispositivo.
 - Edición de nombre y correo electrónico.
 - Eliminación lógica de usuarios (local).
@@ -13,9 +13,9 @@ UserManagerUserManager es una aplicación iOS desarrollada en Swift y SwiftUI qu
 
 # ArquitecturaEl proyecto utiliza una arquitectura basada en MVVM y divide la estructura en carpetas específicas por capas:
 
-- Models: Modelos planos (User, Address) y persistentes (UserObject, AddressObject).
+- Models: Modelos planos
 - Services: Servicios como el consumo de la API (UserService).
-- Repositories: Encapsulan la lógica de acceso a Realm (UserRepository).
+- Repositories: Encapsulan la lógica de acceso a UserDefaults (UserRepository).
 - ViewModels: Lógica de presentación (UserListViewModel, CreateUserViewModel, UserDetailViewModel).
 - Views: Interfaz en SwiftUI.
 - Extensions: Helpers para localización y otros usos (String+Localized.swift).
@@ -23,20 +23,20 @@ UserManagerUserManager es una aplicación iOS desarrollada en Swift y SwiftUI qu
 
 # Librerías utilizadas
 
-- RealmSwift – Para almacenamiento local.
 - Alamofire – Para consumo de la API REST.
 
 
 # Funcionalidades técnicas
 
-- API: Se consume https://jsonplaceholder.typicode.com/users y se transforma cada User en un UserObject.
+- API: Se consume https://jsonplaceholder.typicode.com/users
 - Se evita sobrescribir usuarios ya creados manualmente localmente.
-- Realm: Todos los usuarios (API y locales) se almacenan en Realm.
-- Se utiliza @Persisted y claves primarias para actualización.
-- Se manejan correctamente los hilos mediante DispatchQueue.main.async para evitar errores de acceso a Realm desde hilos incorrectos.
 - LocalizaciónSe implementó soporte para español e inglés.
 - Se utilizan claves Localizable.strings y una extensión String.localized para facilitar la integración en toda la interfaz.
 - UIAplicación construida 100% en SwiftUI.
+
+# NOTA
+
+Se cambio la implementacion de Realm por UserDefaults dado a problemas constantes de compatibilidad de versiones y las limitantes de tiempo. Se busco una alternativa distinta que realizara un comportamiento similar sin perder la funcionalidad esperada. 
 
 
 # Cómo correr el proyectoClona el repositorio:
